@@ -269,7 +269,7 @@ void MainWindow::C_Modbus_mcu()
     ui->v_24->setText(QString("%1").arg(itof(Larkserial->LModbus_Readinfo_16b(V_24V),2)));
     ui->discharge_time->setText(QString("%1").arg(Larkserial->LModbus_Readinfo_16b(DISCHARGE_TIMER)));
     ui->charge_time->setText(QString("%1").arg(Larkserial->LModbus_Readinfo_16b(CHARGE_TIMER)));;
-    ui->Ver->setText(QString::number(Larkserial->LModbus_Readinfo_32b(PRODUCT_CODE),16).toUpper());
+    ui->Ver->setText(QString::number(Larkserial->LModbus_Readinfo_32b(APP_VERSION),16).toUpper());
     ui->cpu->setText(QString(QLatin1String(cpu_temp)));
     ui->mcu->setText(QString("%1").arg(itof(Larkserial->LModbus_Readinfo_16b(TEMPERATURE),1)));
 }
