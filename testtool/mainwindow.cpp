@@ -49,13 +49,12 @@ MainWindow::MainWindow(QWidget *parent) :
         led_btn->start("./led",pa);
 
         connect(led_btn,&QProcess::readyReadStandardOutput,this,&MainWindow::On_Led_read);
-
-        connect(timer,SIGNAL(timeout()),this,SLOT(display_curtime()));
         system("ntpdate time.nist.gov");
     }
 
     ups->start(UPS_FUN_DIR);
     connect(ups,&QProcess::readyReadStandardOutput,this,&MainWindow::On_Ups_read);
+    connect(timer,SIGNAL(timeout()),this,SLOT(display_curtime()));
     ui->time_label->setStyleSheet("color:black");
 
 
